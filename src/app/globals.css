@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 160 25% 92%; /* Màu xanh bạc hà đậm hơn một chút, rất dịu mắt */
+    --foreground: 220 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    --primary: 160 55% 40%; /* Mint Green đậm đà hơn */
+    --primary-foreground: 210 20% 98%;
+    --secondary: 160 25% 85%;
+    --secondary-foreground: 220 15% 15%;
+    --muted: 160 20% 82%;
+    --muted-foreground: 220 10% 35%;
+    --accent: 160 35% 80%;
+    --accent-foreground: 160 60% 25%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 160 20% 75%;
+    --input: 160 15% 88%;
+    --ring: 160 55% 40%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 0 0% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 160 60% 50%;
+    --primary-foreground: 220 20% 10%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 220 20% 20%;
+    --accent-foreground: 160 60% 85%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 160 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
