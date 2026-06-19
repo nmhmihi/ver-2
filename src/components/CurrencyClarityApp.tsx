@@ -346,19 +346,19 @@ export default function CurrencyClarityApp() {
   const showResetButton = transactions.length > 0 && !showDeleteSelectedButton;
 
   return (
-    <main className="min-h-screen flex justify-center pb-4 bg-background">
-      <div className="container mx-auto px-2 pb-2 max-w-5xl">
+    <main className="min-h-screen flex justify-center pb-2 bg-background">
+      <div className="container mx-auto px-2 pb-1 max-w-5xl">
 
         <div className="text-center py-0 mt-0 mb-0">
-          <h1 className="text-3xl font-bold tracking-wider text-primary/80 font-headline drop-shadow-sm leading-none">NMHMIHI</h1>
+          <h1 className="text-2xl font-bold tracking-wider text-primary/80 font-headline drop-shadow-sm leading-none">NMHMIHI</h1>
         </div>
 
-        <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 p-4 rounded-xl border bg-card text-card-foreground shadow-sm">
-          <div className="flex items-center gap-2">
-            <Settings className="h-5 w-5 text-muted-foreground" />
-            <label htmlFor="exchangeRateInput" className="text-xs font-medium text-muted-foreground whitespace-nowrap">Tỷ giá (1 TWD = {exchangeRate.toLocaleString()} VND):</label>
+        <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3 p-2 px-3 rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div className="flex items-center gap-1.5">
+            <Settings className="h-4 w-4 text-muted-foreground" />
+            <label htmlFor="exchangeRateInput" className="text-[11px] font-medium text-muted-foreground whitespace-nowrap">Tỷ giá (1 TWD = {exchangeRate.toLocaleString()} VND):</label>
           </div>
-          <div className="flex items-center space-x-2 flex-grow">
+          <div className="flex items-center space-x-1.5 flex-grow">
             <Input
               id="exchangeRateInput"
               type="number"
@@ -366,7 +366,7 @@ export default function CurrencyClarityApp() {
               onChange={(e) => setTempRate(e.target.value)}
               placeholder="Nhập tỷ giá mới"
               aria-label="Tỷ giá TWD sang VND"
-              className="flex-grow h-10 rounded-lg"
+              className="flex-grow h-8 text-xs rounded-lg"
               autoComplete="off"
             />
             <Button 
@@ -376,7 +376,7 @@ export default function CurrencyClarityApp() {
                   updateExchangeRate(newRate);
                 }
               }}
-              className="h-10 px-4 rounded-lg shrink-0"
+              className="h-8 px-3 text-xs rounded-lg shrink-0"
               size="sm"
             >
               Cập nhật
@@ -384,34 +384,34 @@ export default function CurrencyClarityApp() {
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-4 mt-4">
-            <div className="w-full md:w-1/3 flex flex-col gap-4">
-              <Card className="shadow-md border-none bg-card/60 backdrop-blur-sm rounded-2xl overflow-hidden">
-                 <CardHeader className="flex flex-row items-center justify-between px-6 py-4 bg-primary/5">
-                  <CardTitle className="flex items-center text-base font-bold font-headline text-foreground/80">
-                    <Sigma className="mr-2 h-5 w-5 text-primary" /> Tổng kết
+        <div className="flex flex-col md:flex-row gap-3 mt-2.5">
+            <div className="w-full md:w-1/3 flex flex-col gap-3">
+              <Card className="shadow-md border-none bg-card/60 backdrop-blur-sm rounded-xl overflow-hidden">
+                 <CardHeader className="flex flex-row items-center justify-between px-4 py-2 bg-primary/5">
+                  <CardTitle className="flex items-center text-sm font-bold font-headline text-foreground/80">
+                    <Sigma className="mr-1.5 h-4 w-4 text-primary" /> Tổng kết
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="px-6 pt-4 pb-6">
-                  <div className="space-y-4 text-sm">
+                <CardContent className="px-4 pt-2.5 pb-4">
+                  <div className="space-y-2.5 text-xs">
                       <div className="flex justify-between items-baseline">
                         <span className="text-muted-foreground font-medium">Tổng TWD:</span>
-                        <span className="font-bold text-lg">{overallTotals.totalTwd.toLocaleString()} TWD</span>
+                        <span className="font-bold text-base">{overallTotals.totalTwd.toLocaleString()} TWD</span>
                       </div>
                       <Separator className="bg-border/50" />
                       <div className="flex justify-between items-baseline">
                         <span className="text-muted-foreground font-medium">Tổng VND:</span>
-                        <span className="font-bold text-lg text-primary">{overallTotals.totalVnd.toLocaleString()} VND</span>
+                        <span className="font-bold text-base text-primary">{overallTotals.totalVnd.toLocaleString()} VND</span>
                       </div>
                       <Separator className="bg-border/50" />
                       <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-1">
-                          <span className="text-muted-foreground font-medium">Tổng Phí (TWD):</span>
+                        <div className="flex items-center gap-0.5">
+                          <span className="text-muted-foreground font-medium">Tổng Phí TWD:</span>
                           <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger asChild>
-                              <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground hover:text-foreground rounded-full" onClick={handleToggleFeeVisibility}>
-                                {isFeeVisible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                              <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground hover:text-foreground rounded-full" onClick={handleToggleFeeVisibility}>
+                                {isFeeVisible ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
                                 <span className="sr-only">Ẩn/Hiện tổng phí</span>
                               </Button>
                             </TooltipTrigger>
@@ -421,20 +421,20 @@ export default function CurrencyClarityApp() {
                           </Tooltip>
                           </TooltipProvider>
                         </div>
-                        <span className="font-bold text-lg">{isFeeVisible ? `${overallTotals.totalFeeTwd.toLocaleString()} TWD` : '********'}</span>
+                        <span className="font-bold text-base">{isFeeVisible ? `${overallTotals.totalFeeTwd.toLocaleString()} TWD` : '********'}</span>
                       </div>
                   </div>
 
                   {selectedTransactions.length > 0 && (
-                    <div className="mt-6 p-4 rounded-xl bg-accent/30 border border-accent">
-                      <div className="space-y-3 text-sm">
+                    <div className="mt-3 p-2.5 rounded-lg bg-accent/30 border border-accent">
+                      <div className="space-y-2 text-xs">
                         <div className="flex justify-between items-baseline">
                             <span className="text-muted-foreground font-medium">Đã chọn:</span>
-                            <span className="font-bold text-lg text-accent-foreground">{selectedTotals.totalTwd.toLocaleString()} TWD</span>
+                            <span className="font-bold text-base text-accent-foreground">{selectedTotals.totalTwd.toLocaleString()} TWD</span>
                         </div>
                         <div className="flex justify-between items-baseline">
                             <span className="text-muted-foreground font-medium">VND tương ứng:</span>
-                            <span className="font-bold text-lg text-primary">{selectedTotals.totalVnd.toLocaleString()} VND</span>
+                            <span className="font-bold text-base text-primary">{selectedTotals.totalVnd.toLocaleString()} VND</span>
                         </div>
                       </div>
                     </div>
@@ -443,36 +443,36 @@ export default function CurrencyClarityApp() {
               </Card>
             </div>
             <div className="w-full md:w-2/3">
-              <Card className="shadow-md border-none bg-card/60 backdrop-blur-sm rounded-2xl overflow-hidden h-full">
-                <CardHeader className="flex flex-row items-center justify-between px-6 py-4 bg-primary/5">
-                  <CardTitle className="flex items-center text-base font-bold font-headline text-foreground/80">
-                    <TrendingUp className="mr-2 h-5 w-5 text-primary" /> Lịch sử giao dịch
+              <Card className="shadow-md border-none bg-card/60 backdrop-blur-sm rounded-xl overflow-hidden h-full">
+                <CardHeader className="flex flex-row items-center justify-between px-4 py-2 bg-primary/5">
+                  <CardTitle className="flex items-center text-sm font-bold font-headline text-foreground/80">
+                    <TrendingUp className="mr-1.5 h-4 w-4 text-primary" /> Lịch sử giao dịch
                   </CardTitle>
-                   <Button onClick={() => setIsAddDialogOpen(true)} size="sm" className="rounded-full px-4 shadow-sm">
-                    <PlusCircle className="mr-2 h-4 w-4" /> Thêm mới
+                   <Button onClick={() => setIsAddDialogOpen(true)} size="sm" className="h-8 rounded-full px-3 text-xs shadow-sm">
+                    <PlusCircle className="mr-1.5 h-3.5 w-3.5" /> Thêm mới
                   </Button>
                 </CardHeader>
-                <CardContent className="px-4 pt-4 pb-6">
+                <CardContent className="px-3 pt-2 pb-3">
                   {sortedTransactions.length > 0 ? (
                       <TooltipProvider>
-                      <div className="overflow-x-auto rounded-xl border border-border/50">
+                      <div className="overflow-x-auto rounded-lg border border-border/50">
                         <Table>
                           <TableHeader className="bg-muted/30">
                             <TableRow>
-                              <TableHead className="px-4 py-3 w-[1%]">
+                              <TableHead className="px-2.5 py-1.5 w-[1%]">
                                 <Checkbox
                                     checked={sortedTransactions.length > 0 && selectedTransactions.length === sortedTransactions.length}
                                     onCheckedChange={handleSelectAll}
                                     aria-label="Chọn tất cả"
                                   />
                               </TableHead>
-                              <TableHead className="px-4 py-3 font-bold">Người gửi</TableHead>
-                              <TableHead className="text-right px-4 py-3 font-bold">TWD</TableHead>
-                              <TableHead className="text-right px-4 py-3 font-bold">VND</TableHead>
-                              <TableHead className="text-right px-4 py-3 font-bold">Phí</TableHead>
-                              <TableHead className="text-right px-4 py-3 font-bold">Tỷ giá</TableHead>
-                              <TableHead className="px-4 py-3 font-bold">Thời gian</TableHead>
-                              <TableHead className="text-right px-4 py-3 w-[1%] whitespace-nowrap font-bold">Hành động</TableHead>
+                              <TableHead className="px-2.5 py-1.5 text-xs font-bold">Người gửi</TableHead>
+                              <TableHead className="text-right px-2.5 py-1.5 text-xs font-bold">TWD</TableHead>
+                              <TableHead className="text-right px-2.5 py-1.5 text-xs font-bold">VND</TableHead>
+                              <TableHead className="text-right px-2.5 py-1.5 text-xs font-bold">Phí</TableHead>
+                              <TableHead className="text-right px-2.5 py-1.5 text-xs font-bold">Tỷ giá</TableHead>
+                              <TableHead className="px-2.5 py-1.5 text-xs font-bold">Thời gian</TableHead>
+                              <TableHead className="text-right px-2.5 py-1.5 w-[1%] whitespace-nowrap text-xs font-bold">Hành động</TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
@@ -485,24 +485,24 @@ export default function CurrencyClarityApp() {
                                   t.tag === 'other' ? 'bg-destructive/5 hover:bg-destructive/10 data-[state=selected]:bg-destructive/15' : 'hover:bg-muted/30 data-[state=selected]:bg-primary/5'
                                 )}
                               >
-                                <TableCell className="px-4 py-3">
+                                <TableCell className="px-2.5 py-1.5">
                                     <Checkbox
                                       checked={selectedTransactions.includes(t.id)}
                                       onCheckedChange={(checked) => handleSelectOne(t.id, !!checked)}
                                       aria-label="Chọn giao dịch"
                                     />
                                 </TableCell>
-                                <TableCell className="font-bold px-4 py-3">{t.senderName}</TableCell>
-                                <TableCell className={cn("text-right px-4 py-3 font-medium", t.twdAmount < 0 && "text-destructive")}>{t.twdAmount.toLocaleString()}</TableCell>
-                                <TableCell className={cn("text-right font-bold px-4 py-3", t.vndAmount < 0 ? "text-destructive" : "text-primary")}>{t.vndAmount.toLocaleString()}</TableCell>
-                                <TableCell className="text-right px-4 py-3 text-muted-foreground">{t.feeTwd.toLocaleString()}</TableCell>
-                                <TableCell className="text-right px-4 py-3 text-muted-foreground">{t.exchangeRate.toLocaleString()}</TableCell>
-                                <TableCell className="px-4 py-3 text-xs text-muted-foreground">{t.timestamp ? format(parseISO(t.timestamp), 'dd/MM/yy HH:mm') : ''}</TableCell>
-                                <TableCell className="text-right space-x-1 px-4 py-3">
+                                <TableCell className="font-bold px-2.5 py-1.5 text-xs">{t.senderName}</TableCell>
+                                <TableCell className={cn("text-right px-2.5 py-1.5 font-medium text-xs", t.twdAmount < 0 && "text-destructive")}>{t.twdAmount.toLocaleString()}</TableCell>
+                                <TableCell className={cn("text-right font-bold px-2.5 py-1.5 text-xs", t.vndAmount < 0 ? "text-destructive" : "text-primary")}>{t.vndAmount.toLocaleString()}</TableCell>
+                                <TableCell className="text-right px-2.5 py-1.5 text-xs text-muted-foreground">{t.feeTwd.toLocaleString()}</TableCell>
+                                <TableCell className="text-right px-2.5 py-1.5 text-xs text-muted-foreground">{t.exchangeRate.toLocaleString()}</TableCell>
+                                <TableCell className="px-2.5 py-1.5 text-[11px] text-muted-foreground whitespace-nowrap">{t.timestamp ? format(parseISO(t.timestamp), 'dd/MM/yy HH:mm') : ''}</TableCell>
+                                <TableCell className="text-right space-x-0.5 px-2.5 py-1.5 whitespace-nowrap">
                                   <Tooltip>
                                       <TooltipTrigger asChild>
-                                          <Button variant="ghost" onClick={() => toggleTransactionTag(t.id)} aria-label="Đánh dấu" className="p-0 h-8 w-8 rounded-full hover:bg-accent">
-                                            <UserCheck className={cn("h-4 w-4", t.tag === 'other' ? 'text-accent-foreground' : 'text-muted-foreground')} />
+                                          <Button variant="ghost" onClick={() => toggleTransactionTag(t.id)} aria-label="Đánh dấu" className="p-0 h-6 w-6 rounded-full hover:bg-accent">
+                                            <UserCheck className={cn("h-3.5 w-3.5", t.tag === 'other' ? 'text-accent-foreground' : 'text-muted-foreground')} />
                                           </Button>
                                       </TooltipTrigger>
                                       <TooltipContent>
@@ -511,8 +511,8 @@ export default function CurrencyClarityApp() {
                                   </Tooltip>
                                   <Tooltip>
                                       <TooltipTrigger asChild>
-                                          <Button variant="ghost" onClick={() => openEditDialog(t)} aria-label="Sửa" className="p-0 h-8 w-8 rounded-full hover:bg-primary/10 hover:text-primary">
-                                            <Edit3 className="h-4 w-4" />
+                                          <Button variant="ghost" onClick={() => openEditDialog(t)} aria-label="Sửa" className="p-0 h-6 w-6 rounded-full hover:bg-primary/10 hover:text-primary">
+                                            <Edit3 className="h-3.5 w-3.5" />
                                           </Button>
                                       </TooltipTrigger>
                                       <TooltipContent>
@@ -521,8 +521,8 @@ export default function CurrencyClarityApp() {
                                   </Tooltip>
                                   <Tooltip>
                                       <TooltipTrigger asChild>
-                                          <Button variant="ghost" onClick={() => setDeletingTransactionId(t.id)} aria-label="Xóa" className="p-0 h-8 w-8 rounded-full hover:bg-destructive/10 hover:text-destructive">
-                                            <Trash2 className="h-4 w-4" />
+                                          <Button variant="ghost" onClick={() => setDeletingTransactionId(t.id)} aria-label="Xóa" className="p-0 h-6 w-6 rounded-full hover:bg-destructive/10 hover:text-destructive">
+                                            <Trash2 className="h-3.5 w-3.5" />
                                           </Button>
                                       </TooltipTrigger>
                                       <TooltipContent>
@@ -547,39 +547,39 @@ export default function CurrencyClarityApp() {
             </div>
         </div>
         
-        <div className="mt-6">
-          <Card className="shadow-md border-none bg-card/60 backdrop-blur-sm rounded-2xl overflow-hidden">
-            <CardHeader className="flex flex-row items-center justify-between px-6 py-4 bg-primary/5">
-              <CardTitle className="flex items-center text-base font-bold font-headline text-foreground/80">
-                <Settings className="mr-2 h-5 w-5 text-primary" /> Quản lý dữ liệu
+        <div className="mt-3">
+          <Card className="shadow-md border-none bg-card/60 backdrop-blur-sm rounded-xl overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between px-4 py-2 bg-primary/5">
+              <CardTitle className="flex items-center text-sm font-bold font-headline text-foreground/80">
+                <Settings className="mr-1.5 h-4 w-4 text-primary" /> Quản lý dữ liệu
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col space-y-4 px-6 pt-6 pb-6">
-                <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
+            <CardContent className="flex flex-col space-y-2.5 px-4 pt-3 pb-3">
+                <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
                     {showRestoreButton && (
-                        <Button onClick={handleRestoreConfirm} variant="outline" className="w-full rounded-xl border-dashed border-2 hover:bg-primary/5 hover:border-primary transition-all">
-                          <History className="mr-2 h-5 w-5 text-primary" /> Khôi phục {lastDeletedBatch.length} mục đã xóa
+                        <Button onClick={handleRestoreConfirm} variant="outline" className="w-full rounded-lg text-xs h-9 border-dashed border-2 hover:bg-primary/5 hover:border-primary transition-all">
+                          <History className="mr-1.5 h-4 w-4 text-primary" /> Khôi phục {lastDeletedBatch.length} mục đã xóa
                         </Button>
                     )}
                     {showDeleteSelectedButton && (
-                      <Button onClick={handleDeleteSelected} variant="destructive" className="w-full rounded-xl shadow-sm hover:shadow-md transition-all">
-                          <Trash2 className="mr-2 h-5 w-5" /> Xóa {selectedTransactions.length} mục đã chọn
+                      <Button onClick={handleDeleteSelected} variant="destructive" className="w-full rounded-lg text-xs h-9 shadow-sm hover:shadow-md transition-all">
+                          <Trash2 className="mr-1.5 h-4 w-4" /> Xóa {selectedTransactions.length} mục đã chọn
                         </Button>
                     )}
                     {showResetButton && (
-                        <Button onClick={() => setIsResetRevenueDialogOpen(true)} variant="outline" className="w-full rounded-xl text-destructive border-destructive/30 hover:bg-destructive hover:text-destructive-foreground transition-all">
-                          <RotateCcw className="mr-2 h-5 w-5" /> Làm mới toàn bộ
+                        <Button onClick={() => setIsResetRevenueDialogOpen(true)} variant="outline" className="w-full rounded-lg text-xs h-9 text-destructive border-destructive/30 hover:bg-destructive hover:text-destructive-foreground transition-all">
+                          <RotateCcw className="mr-1.5 h-4 w-4" /> Làm mới toàn bộ
                         </Button>
                     )}
                     {!showRestoreButton && !showDeleteSelectedButton && !showResetButton && (
-                        <p className="text-sm text-center text-muted-foreground font-medium py-2 w-full italic">Hệ thống đang hoạt động ổn định.</p>
+                        <p className="text-xs text-center text-muted-foreground font-medium py-1 w-full italic">Hệ thống đang hoạt động ổn định.</p>
                     )}
                 </div>
             </CardContent>
           </Card>
         </div>
         
-        <footer className="text-center py-10 text-sm text-muted-foreground/60 font-medium">
+        <footer className="text-center py-4 text-xs text-muted-foreground/60 font-medium">
           <span suppressHydrationWarning>© {new Date().getFullYear()}</span> bản quyền thuộc về nmhmihi Minh Hiển
         </footer>
 
